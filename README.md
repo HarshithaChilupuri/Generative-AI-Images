@@ -2,13 +2,12 @@
 
 This repository contains code and resources for generating and enhancing images using generative AI techniques.
 
-# Folder Structure ~ [Ensure all necessary files are in place and paths are correctly specified]
+# Folder Structure [Ensure all necessary files are in place and paths are correctly specified]
 1. background_images: Contains all the backgrounds and the elements in the form of jpg, jpeg, or png.
 2. fonts: Contains all the fonts used during the project which have a .txt extension.
 3. outputs: Contains all the final outputs of each product with 5 different backgrounds. So, in total, there are 25 images present in the outputs folder.
 4. masked: Contains all the product images that are under the process and yet to be finalized with a few changes to be made.
 5. original: Contains all the input products provided and in this project a total of 5 product images are taken in the jpg format, which are to be converted into png format
-
 
 
 Follow these steps to get started with the project:
@@ -32,14 +31,14 @@ Execute the code cells in the provided notebook or Python script sequentially.
 Follow these steps to run the code and generate/enhance images:
 
 # 1. Background Removal:
-The `rembg` library is used to remove the background from the product image (`product3.jpg`).Run the code cells sequentially to generate and enhance the images. The resulting image is saved in the `masked` directory.
+The `rembg` library is used to remove the background from the product image (`product.jpg`).Run the code cells sequentially to generate and enhance the images. The resulting image is saved in the `masked` directory.
 
 ```
-> img3_url = "/content/original/product4.jpg"
+> img3_url = "/content/original/product.jpg"
 
 > img_name = img_url.split('/')[-1]
 
-> img = Image.open("/content/original/product4.jpg")
+> img = Image.open("/content/original/product.jpg")
 
 > img.save('original/' +img_name, format = 'jpeg')
 
@@ -120,24 +119,25 @@ contrast_enhancer = ImageEnhance.Contrast(brighter) # contrast
 brighterr = contrast_enhancer.enhance(0.9)
 
 brighterr.show()
-brighterr.save('/content/outputs/background1.jpg',format = 'JPEG')
+brighterr.save('/content/outputs/background.jpg',format = 'JPEG')
 #brighterr.save('background.jpg')
 ```
 
 # 3. Saving Images:
 The final enhanced images are saved in the outputs directory.
-#Save or display the resulting image
 ```
+#Save or display the resulting image.
 > image.show()  # Display the image with the added text
-> image.save("/content/outputs/background2.jpg")  #Save the image with the added text
+> image.save("/content/masked/background.jpg")  #Save the image with the added text
+```
 
 # 4. Additional Image Enhancement:
 Further enhancements such as brightness and contrast adjustments, text addition, etc., can be applied.
-
+```
 > from PIL import Image, ImageEnhance
 
 #Load the image
-> image_path = "masked/background2.jpg"  #Replace with the path to your image
+> image_path = "masked/background.jpg"  #Replace with the path to your image
 > image = Image.open(image_path)
 
 #Adjust brightness
@@ -156,7 +156,7 @@ Further enhancements such as brightness and contrast adjustments, text addition,
 
 #for font
 #Load the image
-> image = Image.open('/content/output_image.jpg')
+> image = Image.open('/content/outputs/output_image.jpg')
 
 #Define the text to be added
 > text = "TEXT TO ADD"
@@ -174,7 +174,7 @@ Further enhancements such as brightness and contrast adjustments, text addition,
 > draw.text(text_position, text, fill=text_color, font=font)
 #Save or display the resulting image
 > image.show()  #Display the image with the added text
-> image.save("/content/outputs/background2.jpg") #Save the image with the added text
+> image.save("/content/outputs/background.jpg") #Save the image with the added text
 ```
 
 # 5. Approach Details
