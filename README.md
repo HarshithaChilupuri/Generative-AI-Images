@@ -31,10 +31,10 @@ Open the provided Jupyter Notebook or Python script in Google Colab or any Pytho
 Execute the code cells in the provided notebook or Python script sequentially.
 Follow these steps to run the code and generate/enhance images:
 
-1. Background Removal:
+# 1. Background Removal:
 The `rembg` library is used to remove the background from the product image (`product3.jpg`).Run the code cells sequentially to generate and enhance the images. The resulting image is saved in the `masked` directory.
 
-`python`
+```
 > img3_url = "/content/original/product4.jpg"
 
 > img_name = img_url.split('/')[-1]
@@ -47,14 +47,16 @@ The `rembg` library is used to remove the background from the product image (`pr
 > input = open('original/' +img_name, 'rb').read()
 > subject = remove(input)
 > f.write(subject)
+```
 
-2. Image Composition and Enhancement:
+# 2. Image Composition and Enhancement:
    
 Different product images and background images are composited together using the paste method in Pillow. Angles and positions are adjusted for realism.
 For this various image composition and enhancement techniques are applied using the Pillow library.
 # Code for image composition and enhancement
-background_img = Image.open("/content/background_images/blackpedal.jpg")
 
+```
+background_img = Image.open("/content/background_images/blackpedal.jpg")
 background_img = background_img.resize((img.width, img.height))
 
 foreground_img = Image.open(output_pATH)
@@ -100,13 +102,13 @@ background_img.save('masked/background1.jpg',format = 'JPEG')
 
 image = Image.open('/content/masked/background1.jpg')
 image_detail = image.filter(ImageFilter.DETAIL)
-# image_sharp = image_detail.filter(ImageFilter.SHARPEN)
+#image_sharp = image_detail.filter(ImageFilter.SHARPEN)
 image_smooth = image_detail.filter(ImageFilter.SMOOTH)
 image_detailed = image_smooth.filter(ImageFilter.DETAIL)
 image_detailedd = image_detailed.filter(ImageFilter.DETAIL)
-# image_contour = image.filter(ImageFilter.SMOOTH_MORE)
-# image_edge = image_detailedd.filter(ImageFilter.EDGE_ENHANCE)
-# image_find_edges = image_sharp.filter(ImageFilter.FIND_EDGES)
+#image_contour = image.filter(ImageFilter.SMOOTH_MORE)
+#image_edge = image_detailedd.filter(ImageFilter.EDGE_ENHANCE)
+#image_find_edges = image_sharp.filter(ImageFilter.FIND_EDGES)
 color_enhancer = ImageEnhance.Color(image_detailedd)
 sharpness_enhancer = ImageEnhance.Sharpness(image_detailedd)
 enhanced_image = color_enhancer.enhance(1.5)
@@ -120,69 +122,72 @@ brighterr = contrast_enhancer.enhance(0.9)
 brighterr.show()
 brighterr.save('/content/outputs/background1.jpg',format = 'JPEG')
 #brighterr.save('background.jpg')
+```
 
-3. Saving Images:
+# 3. Saving Images:
 The final enhanced images are saved in the outputs directory.
-# Save or display the resulting image
+#Save or display the resulting image
+```
 > image.show()  # Display the image with the added text
-> image.save("/content/outputs/background2.jpg")  # Save the image with the added text
+> image.save("/content/outputs/background2.jpg")  #Save the image with the added text
 
-4. Additional Image Enhancement:
+# 4. Additional Image Enhancement:
 Further enhancements such as brightness and contrast adjustments, text addition, etc., can be applied.
 
 > from PIL import Image, ImageEnhance
 
-# Load the image
-> image_path = "masked/background2.jpg"  # Replace with the path to your image
+#Load the image
+> image_path = "masked/background2.jpg"  #Replace with the path to your image
 > image = Image.open(image_path)
 
-# Adjust brightness
-> brightness_factor = 1  # Increase or decrease as needed (1.0 means no change)
+#Adjust brightness
+> brightness_factor = 1  #Increase or decrease as needed (1.0 means no change)
 > enhancer_brightness = ImageEnhance.Brightness(image)
 > image = enhancer_brightness.enhance(brightness_factor)
 
-# Adjust contrast
-> contrast_factor = 1.2  # Increase or decrease as needed (1.0 means no change)
+#Adjust contrast
+> contrast_factor = 1.2  #Increase or decrease as needed (1.0 means no change)
 > enhancer_contrast = ImageEnhance.Contrast(image)
 > image = enhancer_contrast.enhance(contrast_factor)
 
-# Save or display the resulting image
-> image.show()  # Display the image
-> image.save("output_image.jpg")  # Save the image
+#Save or display the resulting image
+> image.show()  #Display the image
+> image.save("output_image.jpg")  #Save the image
 
-# for font
-# Load the image
+#for font
+#Load the image
 > image = Image.open('/content/output_image.jpg')
 
-# Define the text to be added
+#Define the text to be added
 > text = "TEXT TO ADD"
 
-# Define the font size and font type
+#Define the font size and font type
 > font_size = 40
 > font = ImageFont.truetype("/content/fonts/calibri-italic.ttf",font_size)
-# Determine the position to place the text
-> text_position = (299, 50)  # Adjust the coordinates as needed
+#Determine the position to place the text
+> text_position = (299, 50)  #Adjust the coordinates as needed
 
-# Define text color
-> text_color = (102, 51, 0)  # White color in RGB format
+#Define text color
+> text_color = (102, 51, 0)  #White color in RGB format
 
-# Add the text to the image
+#Add the text to the image
 > draw.text(text_position, text, fill=text_color, font=font)
-# Save or display the resulting image
-> image.show()  # Display the image with the added text
-> image.save("/content/outputs/background2.jpg") # Save the image with the added text
+#Save or display the resulting image
+> image.show()  #Display the image with the added text
+> image.save("/content/outputs/background2.jpg") #Save the image with the added text
+```
 
-5. Approach Details
+# 5. Approach Details
 This section describes the approach used in the project for generating and enhancing images.
 
-`Background Removal`
+# Background Removal
 The rembg library is utilized to remove the background from the product image.
 
-`Image Composition and Enhancement`
+# Image Composition and Enhancement
 Various techniques are applied using the Pillow library for image composition and enhancement, including resizing, rotating, and pasting images onto backgrounds.
 
-`Saving Images`
+# Saving Images
 The final enhanced images are saved in the outputs directory.
 
-`Additional Image Enhancement`
+# Additional Image Enhancement
 Further enhancements such as brightness and contrast adjustments, text addition, etc., can be applied to the images.
