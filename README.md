@@ -2,7 +2,8 @@
 
 This repository contains code and resources for generating and enhancing images using generative AI techniques.
 
-# Folder Structure [Ensure all necessary files are in place and paths are correctly specified]
+# Folder Structure 
+# [Ensure all necessary files are in place and paths are correctly specified]
 1. background_images: Contains all the backgrounds and the elements in the form of jpg, jpeg, or png.
 2. fonts: Contains all the fonts used during the project which have a .txt extension.
 3. outputs: Contains all the final outputs of each product with 5 different backgrounds. So, in total, there are 25 images present in the outputs folder.
@@ -13,11 +14,11 @@ This repository contains code and resources for generating and enhancing images 
 Follow these steps to get started with the project:
 
 1. Clone the Repository:
- > git clone <repository_url>
+ ` > git clone <repository_url> `
 
 2. Install Dependencies:
   Before running the code, make sure you have Python installed along with the required libraries. You can install them using pip:
- > pip install rembg Pillow
+ `  > pip install rembg Pillow ` 
 
 3. Download Necessary Files:
 Ensure you have the necessary images (product3.jpg, background_images/3.jpg, van2.png, 5.jpeg, 10.jpg, etc.) are placed in the appropriate directories as mentioned in the code.
